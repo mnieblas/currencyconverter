@@ -1,0 +1,17 @@
+@import 'src/assets/stylesheets/main.scss';
+
+.currencySelect {
+    width: 356px;
+    :global &__control { 
+        height: 50px;
+        outline: none;
+    }
+    :global &__placeholder {
+        font-family: JosefinSans-Bold;
+        font-size: 20px;
+        color: #7D8792;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
