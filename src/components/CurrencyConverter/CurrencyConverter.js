@@ -13,7 +13,9 @@ class CurrencyConverter extends React.Component {
 
     render() {
         return (
-            <div className="styles.currencyConverter">
+            <div className={styles.currencyConverter}>
+                <CurrencySelect />
+                <p className={styles.paragraph}>to</p>
                 <CurrencySelect />
             </div>
         );

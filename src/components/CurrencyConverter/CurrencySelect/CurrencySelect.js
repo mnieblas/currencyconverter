@@ -5,9 +5,9 @@ import styles from './CurrencySelect.module.scss';
 const currencySelect = (props) => {
 
     const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
+        { value: 'usd', label: 'US DOLLARS' },
+        { value: 'eur', label: 'EURO' },
+        { value: 'bpd', label: 'BRITISH POUND' }
     ];
 
       return <Select 

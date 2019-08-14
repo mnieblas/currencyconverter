@@ -1,2 +1,15 @@
 @import 'src/assets/stylesheets/main.scss';
 
+.currencyConverter {
+    width: 816px;
+    margin-top: 28px;
+    @include flex(row, flex-start, space-between);
+}
+
+.paragraph {
+    font-family: JosefinSans-Bold;
+    font-size: 33px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    padding-top: 8px;
+}

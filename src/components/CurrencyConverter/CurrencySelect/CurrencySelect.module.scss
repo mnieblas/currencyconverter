@@ -4,12 +4,24 @@
     width: 356px;
     :global &__control { 
         height: 50px;
+        border: none;
+        box-shadow: none;
         outline: none;
     }
     :global &__placeholder {
         font-family: JosefinSans-Bold;
         font-size: 20px;
         color: #7D8792;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-align: center;
+        outline: none;
+    }
+
+    :global &__single-value {
+        font-family: JosefinSans-Bold;
+        font-size: 20px;
+        color: #7D8792 !important;
         letter-spacing: 0;
         text-transform: uppercase;
         text-align: center;
