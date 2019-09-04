@@ -1,0 +1,23 @@
+@import 'src/assets/stylesheets/main.scss';
+
+.CurrencyInput {
+    display: block;
+    width: 356px;
+    height: 83px;
+    margin-top: 18px;
+    background-color: transparent;
+    border: none;
+    font-family: JosefinSans-Bold;
+    font-size: 83px;
+    color:white;
+    letter-spacing: 0;
+    outline: none;
+    box-sizing: content-box;
+    &:focus {
+        border-bottom: 3px solid white;
+    }
+    &.InputLeft {
+        text-align: right;
+    }
+}
+

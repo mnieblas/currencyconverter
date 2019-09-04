@@ -1,15 +1,27 @@
 @import 'src/assets/stylesheets/main.scss';
 
-.currencyConverter {
+.CurrencyConverter {
     width: 816px;
-    margin-top: 28px;
+    margin-top: 22px;
+}
+
+.SelectsContainer {
+    width: 100%;
     @include flex(row, flex-start, space-between);
 }
 
-.paragraph {
+.Paragraph {
     font-family: JosefinSans-Bold;
     font-size: 33px;
     color: #FFFFFF;
     letter-spacing: 0;
     padding-top: 8px;
+}
+
+.ParagraphBigger {
+    font-family: JosefinSans-Bold;
+    font-size: 52px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    padding-top: 28px;
 }
