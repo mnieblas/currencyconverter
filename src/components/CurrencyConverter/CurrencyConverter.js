@@ -26,7 +26,7 @@ class CurrencyConverter extends React.Component {
              .then(response => {
                  this.setState({
                     toBase: response.data.rates[this.state.toCurrencyValue],
-                    toValue: response.data.rates[this.state.toCurrencyValue].toFixed(2)
+                    toValue: response.data.rates[this.state.toCurrencyValue].toFixed(4)
                  });
              }).catch(error => {
                  console.log(error);
@@ -44,7 +44,7 @@ class CurrencyConverter extends React.Component {
           this.setState((prevState) => {
             return {
                 fromValue: fromValue,
-                toValue: (fromValue * prevState.toBase).toFixed(2)
+                toValue: (fromValue * prevState.toBase).toFixed(4)
             }
           });
       
@@ -61,7 +61,7 @@ class CurrencyConverter extends React.Component {
         this.setState((prevState) => {
           return {
               toValue: toValue,
-              fromValue: (toValue / prevState.toBase).toFixed(2)
+              fromValue: (toValue / prevState.toBase).toFixed(4)
           }
         });
     
@@ -89,8 +89,8 @@ class CurrencyConverter extends React.Component {
                 this.setState((prevState) => {
                     return {
                        fromCurrencyValue: selectedOption.value,
-                       toBase: response.data.rates[this.state.toCurrencyValue].toFixed(2),
-                       toValue: (prevState.fromValue * response.data.rates[this.state.toCurrencyValue]).toFixed(2)
+                       toBase: response.data.rates[this.state.toCurrencyValue].toFixed(4),
+                       toValue: (prevState.fromValue * response.data.rates[this.state.toCurrencyValue]).toFixed(4)
                     }
                 });
             }).catch(error => {
@@ -121,8 +121,8 @@ class CurrencyConverter extends React.Component {
                 this.setState((prevState) => {
                     return {
                        toCurrencyValue: selectedOption.value,
-                       toBase: response.data.rates[selectedOption.value].toFixed(2),
-                       toValue: (prevState.fromValue * response.data.rates[selectedOption.value]).toFixed(2)
+                       toBase: response.data.rates[selectedOption.value].toFixed(4),
+                       toValue: (prevState.fromValue * response.data.rates[selectedOption.value]).toFixed(4)
                     }
                 });
             }).catch(error => {
