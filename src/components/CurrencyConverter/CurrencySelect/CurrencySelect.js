@@ -6,7 +6,15 @@ const options = [
     { value: 'EUR', label: 'EURO' },
     { value: 'USD', label: 'US DOLLAR' },
     { value: 'GBP', label: 'POUND STERLING' },
-    { value: 'JPY', label: 'JAPANESE YEN' }
+    { value: 'JPY', label: 'JAPANESE YEN' },
+    { value: 'CZK', label: 'CZECH KORUNA' },
+    { value: 'DKK', label: 'DANISH KRONE' },
+    { value: 'HUF', label: 'HUNGARIAN FORINT' },
+    { value: 'CHF', label: 'SWISS FRANC' },
+    { value: 'CAD', label: 'CANADIAN DOLLAR' },
+    { value: 'CNY', label: 'CHINESE YUAN' },
+    { value: 'AUD', label: 'AUSTRALIAN DOLLAR' },
+    { value: 'RUB', label: 'RUSSIAN ROUBLE' },
 ];
 
 class CurrencySelect extends React.Component {
