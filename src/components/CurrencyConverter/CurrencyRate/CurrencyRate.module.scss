@@ -11,4 +11,7 @@
     letter-spacing: 0;
     outline: none;
     cursor: default;
+    @media (max-width: 600px) {
+        margin-top: 10px;
+    }
 }

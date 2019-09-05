@@ -3,11 +3,20 @@
 .CurrencyConverter {
     width: 816px;
     margin-top: 22px;
+    @media (max-width: 900px) {
+       width: 100%;
+    }
 }
 
 .SelectsContainer {
     width: 100%;
     @include flex(row, flex-start, space-between);
+    @media (max-width: 900px) {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+     }
 }
 
 .Paragraph {
@@ -16,6 +25,10 @@
     color: #FFFFFF;
     letter-spacing: 0;
     padding-top: 8px;
+    @media (max-width: 900px) {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 }
 
 .ParagraphBigger {
@@ -24,4 +37,8 @@
     color: #FFFFFF;
     letter-spacing: 0;
     padding-top: 28px;
+    @media (max-width: 900px) {
+        padding-top: 0px;
+        margin-top: 10px;
+    }
 }
