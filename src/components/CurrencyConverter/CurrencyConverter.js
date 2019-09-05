@@ -38,7 +38,7 @@ class CurrencyConverter extends React.Component {
           this.setState((prevState) => {
             return {
                 fromValue: fromValue,
-                toValue: (fromValue * prevState.toBase).toFixed(4)
+                toValue: (fromValue * prevState.toBase).toFixed(2)
             }
           });
       
@@ -49,19 +49,71 @@ class CurrencyConverter extends React.Component {
         this.setState((prevState) => {
           return {
               toValue: toValue,
-              fromValue: (toValue / prevState.toBase).toFixed(4)
+              fromValue: (toValue / prevState.toBase).toFixed(2)
           }
         });
     
-  }
+    }
+
+    currencyFromSelectChangeHandler = (selectedOption) => {
+
+        if (this.state.toCurrencyValue === 'EUR' && selectedOption.value === 'EUR') {
+            this.setState((prevState) => {
+                return {
+                   fromCurrencyValue: selectedOption.value,
+                   toBase: 1,
+                   toValue: prevState.fromValue
+                }
+            });
+        } else {
+            axios.get('/latest?base=' + selectedOption.value + '&symbols=' + this.state.toCurrencyValue)
+            .then(response => {
+                this.setState((prevState) => {
+                    return {
+                       fromCurrencyValue: selectedOption.value,
+                       toBase: response.data.rates[this.state.toCurrencyValue].toFixed(4),
+                       toValue: (prevState.fromValue * response.data.rates[this.state.toCurrencyValue]).toFixed(4)
+                    }
+                });
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+    }
+
+    currencyToSelectChangeHandler = (selectedOption) => {
+        // avoiding EUR vs EUR API error 
+        if (this.state.fromCurrencyValue === 'EUR' && selectedOption.value === 'EUR') {
+            this.setState((prevState) => {
+                return {
+                   toCurrencyValue: selectedOption.value,
+                   toBase: 1,
+                   toValue: prevState.fromValue
+                }
+            });
+        } else {
+            axios.get('/latest?base=' + this.state.fromCurrencyValue + '&symbols=' + selectedOption.value)
+            .then(response => {
+                this.setState((prevState) => {
+                    return {
+                       toCurrencyValue: selectedOption.value,
+                       toBase: response.data.rates[selectedOption.value].toFixed(4),
+                       toValue: (prevState.fromValue * response.data.rates[selectedOption.value]).toFixed(4)
+                    }
+                });
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+    }
     
     render() {
         return (
             <div className={styles.CurrencyConverter}>
                 <div className={styles.SelectsContainer}>
-                    <CurrencySelect currency={this.state.fromCurrencyValue} label={this.state.fromCurrencyLabel}/>
+                    <CurrencySelect currency={this.state.fromCurrencyValue} label={this.state.fromCurrencyLabel} updateCurrency={this.currencyFromSelectChangeHandler}/>
                     <p className={styles.Paragraph}>to</p>
-                    <CurrencySelect currency={this.state.toCurrencyValue} label={this.state.toCurrencyLabel}/>
+                    <CurrencySelect currency={this.state.toCurrencyValue} label={this.state.toCurrencyLabel} updateCurrency={this.currencyToSelectChangeHandler}/>
                 </div>
                 <div className={styles.SelectsContainer}>
                     <CurrencyInput position="left" value={this.state.fromValue} changed={this.currencyFromInputChangeHandler}/>

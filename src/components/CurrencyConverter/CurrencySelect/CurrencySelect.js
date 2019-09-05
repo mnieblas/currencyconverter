@@ -22,7 +22,8 @@ class CurrencySelect extends React.Component {
         console.log(selectedOption);
         this.setState({
             selectedOption: selectedOption
-        })
+        });
+        this.props.updateCurrency(selectedOption);
     }
 
 
