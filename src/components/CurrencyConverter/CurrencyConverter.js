@@ -13,19 +13,48 @@ class CurrencyConverter extends React.Component {
             fromCurrencyValue: 'EUR',
             fromCurrencyLabel: 'EURO',
             toCurrencyValue: 'USD',
-            toCurrencyLabel: 'US DOLLAR'
+            toCurrencyLabel: 'US DOLLAR',
+            fromBase: 1,
+            toBase: 1,
+            fromValue: 1,
+            toValue: 1
         }
     }
 
     componentDidMount() {
         axios.get('/latest?base=' + this.state.fromCurrencyValue + '&symbols=' + this.state.toCurrencyValue)
              .then(response => {
-                 console.log(response);
+                 this.setState({
+                    toBase: response.data.rates[this.state.toCurrencyValue],
+                    toValue: response.data.rates[this.state.toCurrencyValue]
+                 });
              }).catch(error => {
                  console.log(error);
              });
     }
 
+    currencyFromInputChangeHandler = (event) => {      
+          const fromValue = event.target.value;
+          this.setState((prevState) => {
+            return {
+                fromValue: fromValue,
+                toValue: (fromValue * prevState.toBase).toFixed(4)
+            }
+          });
+      
+    }
+
+    currencyToInputChangeHandler = (event) => {      
+        const toValue = event.target.value;
+        this.setState((prevState) => {
+          return {
+              toValue: toValue,
+              fromValue: (toValue / prevState.toBase).toFixed(4)
+          }
+        });
+    
+  }
+    
     render() {
         return (
             <div className={styles.CurrencyConverter}>
@@ -35,12 +64,12 @@ class CurrencyConverter extends React.Component {
                     <CurrencySelect currency={this.state.toCurrencyValue} label={this.state.toCurrencyLabel}/>
                 </div>
                 <div className={styles.SelectsContainer}>
-                    <CurrencyInput position="left" value="12.45"/>
+                    <CurrencyInput position="left" value={this.state.fromValue} changed={this.currencyFromInputChangeHandler}/>
                     <p className={styles.ParagraphBigger}>=</p>
-                    <CurrencyInput position="right" value="9.25"/>
+                    <CurrencyInput position="right" value={this.state.toValue} changed={this.currencyToInputChangeHandler}/>
                 </div>
                 <div className={styles.SelectsContainer}>
-                    <CurrencyRate fromAmount="1" fromCurrency="usd" toAmount="0,277872" toCurrency="eur" />
+                    <CurrencyRate fromAmount={this.state.fromBase} fromCurrency={this.state.fromCurrencyValue} toAmount={this.state.toBase} toCurrency={this.state.toCurrencyValue} />
                 </div>
             </div>
         );

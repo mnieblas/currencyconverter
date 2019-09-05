@@ -5,7 +5,7 @@ class CurrencyInput extends React.Component {
 
     render() {
         return (
-            <input value={this.props.value} className={[styles.CurrencyInput, this.props.position === 'left' ? styles.InputLeft : null].join(' ')} type="number"/>
+            <input min="0" onChange={this.props.changed} value={this.props.value} className={[styles.CurrencyInput, this.props.position === 'left' ? styles.InputLeft : null].join(' ')} type="number"/>
         );
     }
 

@@ -27,15 +27,6 @@ class CurrencySelect extends React.Component {
 
 
     render() {    
-
-        // let selectedOption = this.state.selectedOption;
-        // for (let index = 0; index < options.length; index++) {
-        //     if(options[index].value === this.props.currency) {
-        //         selectedOption = options[index];
-        //         console.log(selectedOption);
-        //     }
-        // }
-
         return (
             <Select 
             className={styles.currencySelect}

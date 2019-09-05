@@ -21,3 +21,33 @@
   }
 }
 
+.Copy {
+  width: 100%;
+  @include flex-column-center();
+  position: absolute;
+  bottom: 30px;
+  &__github {
+    font-family: JosefinSans-SemiBold;
+    font-size: 20px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    a {
+        font-family: JosefinSans-SemiBold;
+        font-size: 20px;
+        color: #FFFFFF;
+        letter-spacing: 0;
+        @include ease-transition(opacity);
+        cursor: pointer;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+  }
+  &__source {
+    font-family: JosefinSans-Light;
+    font-size: 20px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    margin-top: 8px;
+  }
+}
