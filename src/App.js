@@ -18,7 +18,7 @@ function App() {
       <CurrencyConverter />
       <div className="Copy">
         <p className="Copy__github">by <a href="https://github.com/mnieblas">@mnieblas</a></p>
-        <p className="Copy__source">Data powered by the Foreign exchange rates API</p>
+        <p className="Copy__source">Data powered by <a target="_blank" href="https://exchangeratesapi.io/">the Foreign exchange rates API</a></p>
       </div>
     </div>
   );
