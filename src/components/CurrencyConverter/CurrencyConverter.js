@@ -33,6 +33,12 @@ class CurrencyConverter extends React.Component {
              });
     }
 
+    /**
+     * Handling user input change on from input
+     *
+     * @param {event} event
+    */
+
     currencyFromInputChangeHandler = (event) => {      
           const fromValue = event.target.value;
           this.setState((prevState) => {
@@ -44,6 +50,12 @@ class CurrencyConverter extends React.Component {
       
     }
 
+    /**
+     * Handling user input change on to input
+     *
+     * @param {event} event
+    */
+
     currencyToInputChangeHandler = (event) => {      
         const toValue = event.target.value;
         this.setState((prevState) => {
@@ -54,6 +66,12 @@ class CurrencyConverter extends React.Component {
         });
     
     }
+
+    /**
+     * Handling from react-select change
+     *
+     * @param {object} selectedOption - value returned by react-select
+    */
 
     currencyFromSelectChangeHandler = (selectedOption) => {
 
@@ -81,6 +99,12 @@ class CurrencyConverter extends React.Component {
         }
     }
 
+    /**
+     * Handling to react-select change
+     *
+     * @param {object} selectedOption - value returned by react-select
+    */
+
     currencyToSelectChangeHandler = (selectedOption) => {
         // avoiding EUR vs EUR API error 
         if (this.state.fromCurrencyValue === 'EUR' && selectedOption.value === 'EUR') {
@@ -106,7 +130,7 @@ class CurrencyConverter extends React.Component {
             });
         }
     }
-    
+
     render() {
         return (
             <div className={styles.CurrencyConverter}>

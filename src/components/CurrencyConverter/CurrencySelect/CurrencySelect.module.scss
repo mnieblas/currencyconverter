@@ -43,6 +43,17 @@
         outline: none;
     }
 
+    :global &__input {
+        font-family: JosefinSans-Bold;
+        font-size: 20px;
+        color: #7D8792;
+        opacity: .9;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-align: center;
+        outline: none;
+    }
+
     :global &__single-value {
         font-family: JosefinSans-Bold;
         font-size: 20px;

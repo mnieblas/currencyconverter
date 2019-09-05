@@ -42,7 +42,9 @@ class CurrencySelect extends React.Component {
             classNamePrefix="currencySelect"
             options={options} 
             value={this.state.selectedOption}
-            onChange={this.currencySelectionHandler}/>
+            onChange={this.currencySelectionHandler}
+            noOptionsMessage={() => 'Currency not found'}
+            isSearchable/>
         );
     }
 
